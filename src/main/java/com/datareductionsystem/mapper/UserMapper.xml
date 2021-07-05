@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.datareductionsystem.mapper.UserMapper">
+
+    <!--通过用户名和密码查询用户-->
+    <select id="userLogin" resultType="com.datareductionsystem.model.Users">
+        select * from users where username=#{username} and password=#{password}
+    </select>
+
+    <!--添加抖音数据-抖音姓名-->
+    <insert id="subTikTokData1">
+        insert into tiktokdatas (tikTokUserName1) values (#{tikTokUserName1})
+    </insert>
+
+    <!--添加抖音数据-抖音号码-->
+    <insert id="subTikTokData2">
+        insert into tiktokdatas (tikTokUserName2) values (#{tikTokUserName2})
+    </insert>
+
+    <select id="findAllDataExcel" resultType="com.datareductionsystem.model.Tiktok">
+        select * from tiktok
+    </select>
+
+    <insert id="subTikTokData3">
+        insert into tiktokdatas (tikTokUserName1,tikTokUserName2) values (#{str1},#{str2})
+    </insert>
+
+    <insert id="subTikTokData4">
+        insert into tiktok (tikTokUserName1,tikTokUserName2,tikTokUserName3,tikTokUserName4) values (#{str1},#{str2},#{tikTokUserName2},#{tikTokUserName3})
+    </insert>
+
+    <select id="queryDataExcel" resultType="com.datareductionsystem.model.Tiktok">
+        select * from tiktok
+    </select>
+
+    <delete id="deleteDataExcel">
+        delete from tiktok
+    </delete>
+</mapper>
